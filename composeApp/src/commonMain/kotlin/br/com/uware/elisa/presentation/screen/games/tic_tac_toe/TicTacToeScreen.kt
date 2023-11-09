@@ -1,10 +1,9 @@
-package br.com.uware.elisa.presentation.screen.games
+package br.com.uware.elisa.presentation.screen.games.tic_tac_toe
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen
 
-class GamesScreen: Screen {
+class TicTacToeScreen: Screen {
 
     @Composable
     override fun Content() {

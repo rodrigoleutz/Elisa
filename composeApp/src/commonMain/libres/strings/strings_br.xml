@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Elisa</string>
-
+    <string name="games">Jogos</string>
+    <string name="games_description">Tela de Jogos.</string>
+    <string name="home">Início</string>
+    <string name="home_description">Tela de Início.</string>
+    <string name="tic_tac_toe">Jogo da Velha</string>
+    <string name="tic_tac_toe_description">Tela do Jogo da Velha.</string>
 </resources>
