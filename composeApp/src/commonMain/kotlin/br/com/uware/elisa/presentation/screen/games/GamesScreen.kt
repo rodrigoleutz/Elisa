@@ -10,6 +10,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import br.com.uware.elisa.Res
+import br.com.uware.elisa.presentation.component.card.CardComponent
 import br.com.uware.elisa.presentation.component.layout.CenterColumnComponent
 import br.com.uware.elisa.presentation.core.main.MainApp
 import br.com.uware.elisa.presentation.core.main.MainScreen
@@ -19,6 +20,10 @@ import br.com.uware.elisa.presentation.theme.Dimension
 import br.com.uware.elisa.presentation.theme.Font
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
+import compose.icons.FontAwesomeIcons
+import compose.icons.fontawesomeicons.Regular
+import compose.icons.fontawesomeicons.regular.ClosedCaptioning
+import compose.icons.fontawesomeicons.regular.HandSpock
 
 class GamesScreen : Screen {
 
@@ -29,31 +34,16 @@ class GamesScreen : Screen {
         val navigator = LocalNavigator.current
         MainScreen { mainApp: MainApp ->
             CenterColumnComponent {
-                Card(
-                    onClick = {
-                        navigator?.push(TicTacToeScreen())
-                    },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(
-                        text = Res.string.tic_tac_toe,
-                        modifier = Modifier.padding(Dimension.medium),
-                        fontSize = Font.big,
-                        textAlign = TextAlign.Center
-                    )
-                }
-                Card(
-                    onClick = {
-                        navigator?.push(RockPaperScissorsScreen())
-                    },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(
-                        text = Res.string.rock_paper_scissors,
-                        modifier = Modifier.padding(Dimension.medium),
-                        fontSize = Font.big
-                    )
-                }
+                CardComponent(
+                    label = Res.string.tic_tac_toe,
+                    icon = FontAwesomeIcons.Regular.ClosedCaptioning,
+                    route = TicTacToeScreen()
+                )
+                CardComponent(
+                    label = Res.string.rock_paper_scissors,
+                    icon = FontAwesomeIcons.Regular.HandSpock,
+                    route = RockPaperScissorsScreen()
+                )
             }
         }
     }
