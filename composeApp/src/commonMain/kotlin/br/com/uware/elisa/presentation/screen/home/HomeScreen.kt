@@ -1,38 +1,29 @@
 package br.com.uware.elisa.presentation.screen.home
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import br.com.uware.elisa.Res
 import br.com.uware.elisa.presentation.component.card.CardComponent
+import br.com.uware.elisa.presentation.component.layout.CenterColumnComponent
+import br.com.uware.elisa.presentation.core.main.MainApp
 import br.com.uware.elisa.presentation.core.main.MainScreen
-import br.com.uware.elisa.presentation.screen.games.GamesScreen
-import br.com.uware.elisa.presentation.screen.games.tic_tac_toe.TicTacToeScreen
+import br.com.uware.elisa.presentation.core.menu.DrawerMenuItems
 import cafe.adriel.voyager.core.screen.Screen
-import compose.icons.FontAwesomeIcons
-import compose.icons.fontawesomeicons.Regular
-import compose.icons.fontawesomeicons.regular.ClosedCaptioning
-import compose.icons.fontawesomeicons.regular.PaperPlane
 
 class HomeScreen : Screen {
 
     @Composable
     override fun Content() {
-        MainScreen { mainApp ->
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                CardComponent(
-                    label = Res.string.games,
-                    icon = FontAwesomeIcons.Regular.PaperPlane,
-                    route = GamesScreen()
-                )
+        MainScreen { mainApp: MainApp ->
+            CenterColumnComponent {
+                LazyColumn {
+                    items(DrawerMenuItems().all) { item ->
+                        CardComponent(
+                            mainApp = mainApp,
+                            menuItem = item
+                        )
+                    }
+                }
             }
         }
     }

@@ -17,6 +17,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
+import br.com.uware.elisa.presentation.core.main.MainApp
+import br.com.uware.elisa.presentation.core.menu.MenuItem
 import br.com.uware.elisa.presentation.theme.Dimension
 import br.com.uware.elisa.presentation.theme.Font
 import cafe.adriel.voyager.core.screen.Screen
@@ -25,14 +28,14 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CardComponent(
-    label: String,
-    icon: ImageVector,
-    route: Screen
+    mainApp: MainApp,
+    menuItem: MenuItem
 ){
     val navigator = LocalNavigator.current
     ElevatedCard(
         onClick = {
-            navigator?.push(route)
+            navigator?.push(menuItem.route)
+            mainApp.topBar.setTitle(menuItem.label)
         },
         elevation = CardDefaults.elevatedCardElevation(
             defaultElevation = Dimension.big,
@@ -49,14 +52,15 @@ fun CardComponent(
             horizontalArrangement = Arrangement.Center
         ) {
             Icon(
-                imageVector = icon,
-                contentDescription = label,
+                imageVector = menuItem.icon,
+                contentDescription = menuItem.label,
                 modifier = Modifier.size(Dimension.giant)
             )
             Divider(modifier = Modifier.width(Dimension.medium))
             Text(
-                text = label,
-                fontSize = Font.big
+                text = menuItem.label,
+                fontSize = Font.big,
+                fontWeight = FontWeight.Bold
             )
         }
     }

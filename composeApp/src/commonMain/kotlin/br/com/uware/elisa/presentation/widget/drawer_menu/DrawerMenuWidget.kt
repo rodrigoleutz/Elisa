@@ -13,6 +13,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import br.com.uware.elisa.Res
 import br.com.uware.elisa.presentation.core.main.MainApp
 import br.com.uware.elisa.presentation.core.menu.DrawerMenu
+import br.com.uware.elisa.presentation.core.menu.DrawerMenuItems
+import br.com.uware.elisa.presentation.navigate
 import cafe.adriel.voyager.navigator.LocalNavigator
 import compose.icons.FeatherIcons
 import kotlinx.coroutines.launch
@@ -38,6 +40,7 @@ fun DrawerMenuWidget(
                         scope.launch {
                             mainApp.drawerState.close()
                             navigator?.push(item.route)
+                            mainApp.navigate(item)
                         }
                     },
                     selected = mainApp.currentRoute == item.route
@@ -52,6 +55,7 @@ fun DrawerMenuWidget(
                 scope.launch {
                     mainApp.drawerState.close()
                     navigator?.pop()
+                    mainApp.topBar.setTitle(Res.string.app_name)
                 }
             },
             icon = {
