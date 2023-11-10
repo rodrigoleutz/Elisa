@@ -5,9 +5,13 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import br.com.uware.elisa.presentation.core.main.MainApp
+import br.com.uware.elisa.presentation.theme.lightPink
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -18,7 +22,7 @@ fun TopBarWidget(
     val scope = rememberCoroutineScope()
     TopAppBar(
         title = {
-            Text(mainApp.topBar.title.value)
+            Text(text = mainApp.topBar.title.value, fontWeight = FontWeight.Bold)
         },
         navigationIcon = {
             IconButton(
@@ -30,6 +34,12 @@ fun TopBarWidget(
             ) {
                 Icon(imageVector = mainApp.topBar.navIcon.value, contentDescription = null)
             }
-        }
+        },
+        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+            containerColor = lightPink,
+            navigationIconContentColor = Color.DarkGray,
+            titleContentColor = Color.DarkGray,
+            actionIconContentColor = Color.DarkGray
+        )
     )
 }

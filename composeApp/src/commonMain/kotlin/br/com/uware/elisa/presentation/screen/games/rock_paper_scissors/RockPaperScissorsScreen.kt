@@ -31,7 +31,7 @@ class RockPaperScissorsScreen : Screen {
 
     private val state: RockPaperScissorsScreenState = RockPaperScissorsScreenState()
 
-    fun checkImage(value: Int): ImageVector {
+    private fun checkImage(value: Int): ImageVector {
         return when (value) {
             1 -> FontAwesomeIcons.Regular.HandRock
             2 -> FontAwesomeIcons.Regular.HandPaper
