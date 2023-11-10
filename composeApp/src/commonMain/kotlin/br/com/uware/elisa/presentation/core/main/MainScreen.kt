@@ -8,6 +8,9 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import br.com.uware.elisa.presentation.core.menu.DrawerMenuGamesItems
+import br.com.uware.elisa.presentation.core.menu.DrawerMenuItems
+import br.com.uware.elisa.presentation.screen.games.GamesScreen
 import br.com.uware.elisa.presentation.widget.drawer_menu.DrawerMenuWidget
 import br.com.uware.elisa.presentation.widget.top_bar.TopBarWidget
 
@@ -20,7 +23,13 @@ fun MainScreen(
     ModalNavigationDrawer(
         drawerState = mainApp.drawerState,
         drawerContent = {
-            DrawerMenuWidget(mainApp)
+            DrawerMenuWidget(
+                mainApp,
+                when (mainApp.currentRoute) {
+                    GamesScreen() -> DrawerMenuGamesItems()
+                    else -> DrawerMenuItems()
+                }
+            )
         }
     ) {
         Scaffold(
