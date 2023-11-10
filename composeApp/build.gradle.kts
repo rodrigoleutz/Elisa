@@ -55,6 +55,8 @@ kotlin {
             implementation(libs.multiplatformSettings)
             implementation(libs.koin.core)
             implementation(libs.kstore)
+
+            implementation("br.com.devsrsouza.compose.icons:font-awesome:1.1.0")
         }
 
         commonTest.dependencies {
