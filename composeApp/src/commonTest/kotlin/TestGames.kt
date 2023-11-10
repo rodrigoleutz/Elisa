@@ -2,7 +2,6 @@ import br.com.uware.elisa.presentation.screen.games.rock_paper_scissors.RockPape
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertContains
-import kotlin.test.assertEquals
 
 class TestGames {
 

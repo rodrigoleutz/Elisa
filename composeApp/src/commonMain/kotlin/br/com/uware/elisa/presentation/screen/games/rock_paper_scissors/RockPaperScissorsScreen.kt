@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -17,6 +18,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import br.com.uware.elisa.Res
 import br.com.uware.elisa.presentation.core.main.MainScreen
+import br.com.uware.elisa.presentation.theme.Dimension
 import br.com.uware.elisa.presentation.theme.Font
 import cafe.adriel.voyager.core.screen.Screen
 import compose.icons.FontAwesomeIcons
@@ -30,7 +32,7 @@ class RockPaperScissorsScreen : Screen {
     private val state: RockPaperScissorsScreenState = RockPaperScissorsScreenState()
 
     fun checkImage(value: Int): ImageVector {
-        return when(value) {
+        return when (value) {
             1 -> FontAwesomeIcons.Regular.HandRock
             2 -> FontAwesomeIcons.Regular.HandPaper
             else -> FontAwesomeIcons.Regular.HandScissors
@@ -55,12 +57,14 @@ class RockPaperScissorsScreen : Screen {
                     AnimatedVisibility(computerImage.value != null) {
                         Icon(
                             imageVector = computerImage.value!!,
-                            contentDescription = null
+                            contentDescription = null,
+                            modifier = Modifier.padding(Dimension.giant)
                         )
                     }
                 }
                 Row(
-                    modifier = Modifier.fillMaxWidth().align(Alignment.Center)
+                    modifier = Modifier.fillMaxWidth().align(Alignment.TopCenter)
+                        .padding(top = Dimension.big)
                 ) {
                     Text(
                         text = victoryText.value,
