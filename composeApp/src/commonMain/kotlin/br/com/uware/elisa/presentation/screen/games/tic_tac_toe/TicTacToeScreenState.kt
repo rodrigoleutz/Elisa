@@ -18,6 +18,14 @@ class TicTacToeScreenState {
                 return checkList[x] == 1
             }
         }
+        var x = 0
+        if (checkList[x] != 0 && checkList[x] == checkList[x + 4] && checkList[x + 4] == checkList[x + 8]) {
+            return checkList[x] == 1
+        }
+        x = 3
+        if (checkList[x] != 0 && checkList[x] == checkList[x + 2] && checkList[x + 2] == checkList[x + 6]) {
+            return checkList[x] == 1
+        }
         return null
     }
 }

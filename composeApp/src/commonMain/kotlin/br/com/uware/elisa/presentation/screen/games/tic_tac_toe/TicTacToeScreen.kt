@@ -57,13 +57,16 @@ class TicTacToeScreen : Screen {
                                 val place = buttonValues[index]
                                 OutlinedButton(
                                     onClick = {
-                                        if(play.value < 10) {
+                                        if (play.value < 10) {
                                             val newList = checked.value.toMutableList()
                                             newList[place] = if (player.value) 1 else 2
                                             checked.value = newList
                                             player.value = !player.value
                                             ++play.value
-                                            title.value = when(state.checkVictory()) {
+                                            if (state.checkVictory() == true || state.checkVictory() == false) {
+                                                play.value = 10
+                                            }
+                                            title.value = when (state.checkVictory()) {
                                                 true -> "X"
                                                 false -> "O"
                                                 else -> Res.string.tic_tac_toe
@@ -87,7 +90,7 @@ class TicTacToeScreen : Screen {
                                     )
                                 }
                                 index++
-                                if(index == 9) index = 8
+                                if (index == 9) index = 8
                             }
                         }
                     }
