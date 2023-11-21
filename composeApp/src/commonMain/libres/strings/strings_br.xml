@@ -8,6 +8,7 @@
     <string name="easy">Fácil</string>
     <string name="games">Jogos</string>
     <string name="games_description">Tela de Jogos.</string>
+    <string name="got_it_right">Acertou</string>
     <string name="hard">Difícil</string>
     <string name="home">Início</string>
     <string name="home_description">Tela de Início.</string>
@@ -15,10 +16,13 @@
     <string name="math">Matemática</string>
     <string name="math_description">Tela do Jogo de Matemática</string>
     <string name="paper">Papel</string>
+    <string name="restart">Reiniciar</string>
+    <string name="result">Resultado</string>
     <string name="rock">Pedra</string>
     <string name="rock_paper_scissors">Pedra Papel Tesoura</string>
     <string name="rock_paper_scissors_description">Tela do Jogo Pedra Papel Tesoura.</string>
     <string name="scissors">Tesoura</string>
     <string name="tic_tac_toe">Jogo da Velha</string>
     <string name="tic_tac_toe_description">Tela do Jogo da Velha.</string>
+    <string name="wrong">Errou</string>
 </resources>

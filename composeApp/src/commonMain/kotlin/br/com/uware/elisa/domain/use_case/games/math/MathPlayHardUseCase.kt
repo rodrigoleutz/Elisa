@@ -11,14 +11,17 @@ class MathPlayHardUseCase {
         var second: Int? = null
         val operation = Random.nextInt(IntRange(1,4))
         var result = 0
-        if(operation == 4) {
-            do {
-                first = Random.nextInt(IntRange(1,100))
-                second = Random.nextInt(IntRange(1,100))
+        when(operation) {
+            4 -> do {
+                first = Random.nextInt(IntRange(1, 100))
+                second = Random.nextInt(IntRange(1, 100))
             } while (first != null && second != null && first % second != 0)
-        } else {
-            first = Random.nextInt(IntRange(1,100))
-            second = Random.nextInt(IntRange(1,100))
+            else -> {
+                do {
+                    first = Random.nextInt(IntRange(1, 100))
+                    second = Random.nextInt(IntRange(1, 100))
+                } while (first != null && second != null && (first*second) > 100 )
+            }
         }
         result = MathOperationUseCase().invoke(first!!, second!!, operation)
         return GameModel(
