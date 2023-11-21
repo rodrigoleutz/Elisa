@@ -172,7 +172,7 @@ class MathGameScreen(
                             },
                             modifier = Modifier.weight(1f).fillMaxWidth().padding(Dimension.medium)
                         ) {
-                            Text(Res.string.restart)
+                            Text(Res.string.new)
                         }
                     }
                 }
