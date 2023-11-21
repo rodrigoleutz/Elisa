@@ -17,7 +17,8 @@ class DrawerMenuItems: DrawerMenu {
         label = Res.string.home,
         route = HomeScreen(),
         icon = Icons.Rounded.Home,
-        description = Res.string.home_description
+        description = Res.string.home_description,
+        inHome = false
     )
 
     val games = MenuItem(

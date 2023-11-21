@@ -18,10 +18,12 @@ class HomeScreen : Screen {
             CenterColumnComponent {
                 LazyColumn {
                     items(DrawerMenuItems().all) { item ->
-                        CardComponent(
-                            mainApp = mainApp,
-                            menuItem = item
-                        )
+                        if(item.inHome) {
+                            CardComponent(
+                                mainApp = mainApp,
+                                menuItem = item
+                            )
+                        }
                     }
                 }
             }
