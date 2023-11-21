@@ -5,10 +5,13 @@
     <string name="app_name">Elisa</string>
     <string name="back_button">Voltar</string>
     <string name="back_button_description">Botão de Voltar.</string>
+    <string name="easy">Fácil</string>
     <string name="games">Jogos</string>
     <string name="games_description">Tela de Jogos.</string>
+    <string name="hard">Difícil</string>
     <string name="home">Início</string>
     <string name="home_description">Tela de Início.</string>
+    <string name="medium">Médio</string>
     <string name="math">Matemática</string>
     <string name="math_description">Tela do Jogo de Matemática</string>
     <string name="paper">Papel</string>

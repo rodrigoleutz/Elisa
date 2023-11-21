@@ -8,5 +8,6 @@ data class MenuItem(
     val label: String,
     val route: Screen,
     val icon: ImageVector,
-    val description: String
+    val description: String,
+    val inHome: Boolean = true
 )
