@@ -101,10 +101,9 @@ class MathGameScreen(
                     ) {
                         val background by transition.animateColor { state ->
                             if (state == EnterExitState.Visible) {
-                                if(textResult.value == Res.string.got_it_right) Color.Green
+                                if (textResult.value == Res.string.got_it_right) Color.Green
                                 else Color.Red
-                            }
-                            else Color.White
+                            } else Color.White
                         }
                         Text(
                             text = textResult.value,
@@ -143,14 +142,13 @@ class MathGameScreen(
                                     if (result.value == game.value?.result.toString()) {
                                         ++points.value
                                         Res.string.got_it_right
-                                    }
-                                    else {
+                                    } else {
                                         --points.value
                                         Res.string.wrong
                                     }
                             },
                             enabled = activeResult.value,
-                            modifier = Modifier.weight(1f).padding(Dimension.giant)
+                            modifier = Modifier.weight(1f).fillMaxWidth().padding(Dimension.medium)
                         ) {
                             Text(Res.string.result)
                         }
@@ -172,7 +170,7 @@ class MathGameScreen(
                                     else -> "/"
                                 }
                             },
-                            modifier = Modifier.weight(1f).padding(Dimension.giant)
+                            modifier = Modifier.weight(1f).fillMaxWidth().padding(Dimension.medium)
                         ) {
                             Text(Res.string.restart)
                         }
