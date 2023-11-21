@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import br.com.uware.elisa.Res
 import br.com.uware.elisa.presentation.core.main.MainScreen
@@ -47,10 +48,24 @@ class RockPaperScissorsScreen : Screen {
         val computerImage = remember {
             mutableStateOf<ImageVector?>(null)
         }
+        val points = remember {
+            state.points
+        }
         MainScreen { mainApp ->
             Box(
                 modifier = Modifier.fillMaxSize()
             ) {
+                Row(
+                    modifier = Modifier.align(Alignment.TopStart).padding(Dimension.medium)
+                ) {
+                    Text(
+                        text = "${Res.string.points}: ",
+                    )
+                    Text(
+                        text = "${points.value}",
+                        fontWeight = FontWeight.Bold
+                    )
+                }
                 Row(
                     modifier = Modifier.fillMaxWidth().align(Alignment.Center)
                 ) {
