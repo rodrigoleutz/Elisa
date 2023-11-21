@@ -7,10 +7,19 @@ import kotlin.random.nextInt
 class MathPlayEasyUseCase {
 
     operator fun invoke(): GameModel {
-        val first = Random.nextInt(11)
-        val second = Random.nextInt(11)
+        var first: Int? = null
+        var second: Int? = null
         val operation = Random.nextInt(IntRange(1,2))
-        val result = MathOperationUseCase().invoke(first,second,operation)
+        if(operation == 2) {
+            do {
+                first = Random.nextInt(11)
+                second = Random.nextInt(11)
+            } while (first != null && second!= null && first < second)
+        } else {
+            first = Random.nextInt(11)
+            second = Random.nextInt(11)
+        }
+        val result = MathOperationUseCase().invoke(first!!,second!!,operation)
         return GameModel(
             first,second, operation, result
         )
