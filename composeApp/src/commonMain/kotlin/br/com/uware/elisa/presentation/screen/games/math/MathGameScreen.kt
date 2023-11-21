@@ -64,6 +64,9 @@ class MathGameScreen(
         val points = remember {
             mutableStateOf(0)
         }
+        val activeResult = remember {
+            mutableStateOf(true)
+        }
         MainScreen { mainApp ->
             LaunchedEffect(true) {
                 game.value = when (level) {
@@ -79,18 +82,29 @@ class MathGameScreen(
                 }
             }
             Box {
-                Text(
-                    text = "${Res.string.points}: ${points.value}",
+                Row(
                     modifier = Modifier.align(Alignment.TopStart).padding(Dimension.medium)
-                )
+                ) {
+                    Text(
+                        text = "${Res.string.points}: ",
+                    )
+                    Text(
+                        text = "${points.value}",
+                        fontWeight = FontWeight.Bold
+                    )
+                }
                 CenterColumnComponent {
                     AnimatedVisibility(
-                        visible = game.value?.result.toString() != "",
+                        visible = textResult.value != "",
                         enter = fadeIn(),
                         exit = fadeOut()
                     ) {
                         val background by transition.animateColor { state ->
-                            if (state == EnterExitState.Visible) Color.Green else Color.Red
+                            if (state == EnterExitState.Visible) {
+                                if(textResult.value == Res.string.got_it_right) Color.Green
+                                else Color.Red
+                            }
+                            else Color.White
                         }
                         Text(
                             text = textResult.value,
@@ -124,6 +138,7 @@ class MathGameScreen(
                     ) {
                         Button(
                             onClick = {
+                                activeResult.value = false
                                 textResult.value =
                                     if (result.value == game.value?.result.toString()) {
                                         ++points.value
@@ -134,6 +149,7 @@ class MathGameScreen(
                                         Res.string.wrong
                                     }
                             },
+                            enabled = activeResult.value,
                             modifier = Modifier.weight(1f).padding(Dimension.giant)
                         ) {
                             Text(Res.string.result)
@@ -141,6 +157,7 @@ class MathGameScreen(
                         Spacer(modifier = Modifier.width(Dimension.medium))
                         Button(
                             onClick = {
+                                activeResult.value = true
                                 textResult.value = ""
                                 result.value = ""
                                 game.value = when (level) {
